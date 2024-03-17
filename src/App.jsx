@@ -2,6 +2,7 @@ import React from "react";
 import FormPage from "./Pages/FormPage";
 import ThanksPage from "./Pages/ThanksPage";
 import LogInPage from "./Pages/LogInPage";
+import DataTable from "./Pages/DataTable";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
@@ -9,6 +10,7 @@ function App() {
     { path: "/", element: <FormPage /> },
     { path: "/Thanks", element: <ThanksPage /> },
     { path: "/admin", element: <LogInPage /> },
+    { path: "/Data", element: <DataTable /> },
   ]);
   return (
     <>
