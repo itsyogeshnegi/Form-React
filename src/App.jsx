@@ -5,16 +5,27 @@ import LogInPage from "./Pages/LogInPage";
 import DataTable from "./Pages/DataTable";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AuthContext } from "./Pages/AuthContext";
+import { Protected } from "./Pages/Protected";
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <FormPage /> },
     { path: "/Thanks", element: <ThanksPage /> },
     { path: "/admin", element: <LogInPage /> },
-    { path: "/Data", element: <DataTable /> },
+    {
+      path: "/Data",
+      element: (
+        <Protected>
+          <DataTable />
+        </Protected>
+      ),
+    },
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthContext>
+        <RouterProvider router={router} />
+      </AuthContext>
     </>
   );
 }
